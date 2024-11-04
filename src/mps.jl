@@ -18,6 +18,8 @@ function inner_product(mps1::MPS{T}, mps2::MPS{T}) where T<:AbstractArray
 
     # generate indices for mps1
 
+    # generate indices for mps2
+
 
     eincode = OMEinsum.DynamicEinCode(indices, Int[])
 
