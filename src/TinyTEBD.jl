@@ -1,5 +1,7 @@
 module TinyTEBD
 
-# Write your package code here.
+using OMEinsum
+
+include("mps.jl")
 
 end
