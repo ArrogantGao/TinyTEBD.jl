@@ -5,9 +5,7 @@ struct MPS{T}
     end
 end
 
-using OMEinsum
 function dagger_mps(mps::MPS{T}) where T<:AbstractArray
-    # Apply complex conjugate and transpose to each tensor in the MPS
     daggered_tensors = [conj(transpose(tensor)) for tensor in mps.tensors]
     return MPS(daggered_tensors)
 end
@@ -74,11 +72,4 @@ function inner_product(mps1::MPS{T}, mps2::MPS{T}) where T<:AbstractArray
 
     return eincode(mps1.tensors..., mps2.tensors...)[1]#, nested_ein(mps1.tensors..., mps2.tensors...)
 end
-tensor1 = [1+2im 2; 1 1]
-#tensor2 = [1 2; 3 4]
-tensor3 = [1 1; 1 1]
-mps1 = MPS([tensor1, tensor3])
-mps2 = MPS([tensor1, tensor3])
-result = inner_product(mps1, mps2)
-println(result)
-@show result
+
